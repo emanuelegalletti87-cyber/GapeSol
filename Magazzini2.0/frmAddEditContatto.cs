@@ -69,17 +69,31 @@ namespace Magazzini2._0
 
                 GestioneMagazziniEntities db = new GestioneMagazziniEntities();
                 Contatto contatto = new Contatto();
+                bool isModifica = true;
+                if (mContatto == null)
+                {
+                    isModifica = false;
+                }
+                else
+                {
+                    contatto = db.Contatto.Where(x => x.ID == mContatto.ID).FirstOrDefault();
+                }
 
-                contatto.Nome = txtbNome.Text;
-                contatto.Cognome = txtbCognome.Text;
-                contatto.DataDiNascita = dtpDataNascita.Value;
-                contatto.Indirizzo = txtbIndirizzo.Text;
-                contatto.Citta = txtbCitta.Text;
-                contatto.EMail = txtbEmail.Text;
-                contatto.Telefono = txtbTelefono.Text;
-                contatto.TipoContatto = (enmTipoContatto)comboBoxTipoContatto.SelectedItem;
+                if (contatto != null)
+                {
+                    contatto.Nome = txtbNome.Text;
+                    contatto.Cognome = txtbCognome.Text;
+                    contatto.DataDiNascita = dtpDataNascita.Value;
+                    contatto.Indirizzo = txtbIndirizzo.Text;
+                    contatto.Citta = txtbCitta.Text;
+                    contatto.EMail = txtbEmail.Text;
+                    contatto.Telefono = txtbTelefono.Text;
+                    contatto.TipoContatto = (enmTipoContatto)comboBoxTipoContatto.SelectedItem;
+                }
 
-                db.Contatto.Add(contatto);
+                if (isModifica)
+                    db.Contatto.Add(contatto);
+
                 db.SaveChanges();
 
                 MessageBox.Show("Contatto aggiunto/modificato con successo.", "Operazione completata", MessageBoxButtons.OK, MessageBoxIcon.Information);

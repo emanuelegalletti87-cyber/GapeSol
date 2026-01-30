@@ -33,7 +33,7 @@ namespace Magazzini2._0
         private void CaricaMagazzini()
         {
             GestioneMagazziniEntities db = new GestioneMagazziniEntities();
-           
+            gestioneMagazziniDataSet.Reset();
             try
             {
                 if (string.IsNullOrEmpty(toolStripTxtbMagaCerca.Text))
@@ -44,8 +44,7 @@ namespace Magazzini2._0
                 else
                 {
                     var filtro = gestioneMagazziniDataSet.Magazzini.AsEnumerable().Where(x =>
-                                    x.Field<string>("Nome").StartsWith(toolStripTxtbMagaCerca.Text) ||
-                                    x.Field<string>("Nome").EndsWith(toolStripTxtbMagaCerca.Text));
+                                    x.Field<string>("Nome").Contains(toolStripTxtbMagaCerca.Text));
 
                     dgvMagazzini.DataSource = filtro.Any()
                         ? filtro.CopyToDataTable()
@@ -91,6 +90,7 @@ namespace Magazzini2._0
 
                 frmAddEditMagazzini gestMaga = new frmAddEditMagazzini(mlistaMagazzini.ElementAt(dgvMagazzini.SelectedRows[0].Index));
                 gestMaga.ShowDialog();
+                CaricaMagazzini();
             }
             catch (Exception ex)
             {
