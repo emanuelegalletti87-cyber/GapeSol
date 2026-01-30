@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GestioneMagazziniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contatto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cognome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataDiNascita" Type="datetime" Nullable="false" />
+          <Property Name="Indirizzo" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Citta" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="TipoContatto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Magazzini">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comune" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Indirizzo" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movimenti">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDProdotto" Type="int" Nullable="false" />
+          <Property Name="IDMagazzino" Type="int" Nullable="false" />
+          <Property Name="IDContatto" Type="int" Nullable="false" />
+          <Property Name="DataMovimento" Type="datetime" Nullable="false" />
+          <Property Name="TipoMovimento" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantita" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prodotti">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descrizione" Type="nvarchar" MaxLength="150" />
+          <Property Name="PrezzoUnitario" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Movimenti_Contatto">
+          <End Role="Contatto" Type="Self.Contatto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Movimenti" Type="Self.Movimenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contatto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movimenti">
+              <PropertyRef Name="IDContatto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimenti_Magazzini">
+          <End Role="Magazzini" Type="Self.Magazzini" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Movimenti" Type="Self.Movimenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazzini">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movimenti">
+              <PropertyRef Name="IDMagazzino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimenti_Prodotti">
+          <End Role="Prodotti" Type="Self.Prodotti" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Movimenti" Type="Self.Movimenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prodotti">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movimenti">
+              <PropertyRef Name="IDProdotto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GestioneMagazziniModelStoreContainer">
+          <EntitySet Name="Contatto" EntityType="Self.Contatto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Magazzini" EntityType="Self.Magazzini" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movimenti" EntityType="Self.Movimenti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prodotti" EntityType="Self.Prodotti" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Movimenti_Contatto" Association="Self.FK_Movimenti_Contatto">
+            <End Role="Contatto" EntitySet="Contatto" />
+            <End Role="Movimenti" EntitySet="Movimenti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimenti_Magazzini" Association="Self.FK_Movimenti_Magazzini">
+            <End Role="Magazzini" EntitySet="Magazzini" />
+            <End Role="Movimenti" EntitySet="Movimenti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimenti_Prodotti" Association="Self.FK_Movimenti_Prodotti">
+            <End Role="Prodotti" EntitySet="Prodotti" />
+            <End Role="Movimenti" EntitySet="Movimenti" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GestioneMagazziniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contatto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cognome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataDiNascita" Type="DateTime" Nullable="false" />
+          <Property Name="Indirizzo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Citta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoContatto" Type="GestioneMagazziniModel.enmTipoContatto" Nullable="false" />
+          <NavigationProperty Name="Movimenti" Relationship="Self.FK_Movimenti_Contatto" FromRole="Contatto" ToRole="Movimenti" />
+        </EntityType>
+        <EntityType Name="Magazzini">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comune" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Indirizzo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Movimenti" Relationship="Self.FK_Movimenti_Magazzini" FromRole="Magazzini" ToRole="Movimenti" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Movimenti">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDProdotto" Type="Int32" Nullable="false" />
+          <Property Name="IDMagazzino" Type="Int32" Nullable="false" />
+          <Property Name="IDContatto" Type="Int32" Nullable="false" />
+          <Property Name="DataMovimento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TipoMovimento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Quantita" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contatto" Relationship="Self.FK_Movimenti_Contatto" FromRole="Movimenti" ToRole="Contatto" />
+          <NavigationProperty Name="Magazzini" Relationship="Self.FK_Movimenti_Magazzini" FromRole="Movimenti" ToRole="Magazzini" />
+          <NavigationProperty Name="Prodotti" Relationship="Self.FK_Movimenti_Prodotti" FromRole="Movimenti" ToRole="Prodotti" />
+        </EntityType>
+        <EntityType Name="Prodotti">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descrizione" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PrezzoUnitario" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Movimenti" Relationship="Self.FK_Movimenti_Prodotti" FromRole="Prodotti" ToRole="Movimenti" />
+        </EntityType>
+        <Association Name="FK_Movimenti_Contatto">
+          <End Role="Contatto" Type="Self.Contatto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Movimenti" Type="Self.Movimenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contatto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movimenti">
+              <PropertyRef Name="IDContatto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimenti_Magazzini">
+          <End Role="Magazzini" Type="Self.Magazzini" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Movimenti" Type="Self.Movimenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazzini">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movimenti">
+              <PropertyRef Name="IDMagazzino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimenti_Prodotti">
+          <End Role="Prodotti" Type="Self.Prodotti" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Movimenti" Type="Self.Movimenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prodotti">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movimenti">
+              <PropertyRef Name="IDProdotto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GestioneMagazziniEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contatto" EntityType="Self.Contatto" />
+          <EntitySet Name="Magazzini" EntityType="Self.Magazzini" />
+          <EntitySet Name="Movimenti" EntityType="Self.Movimenti" />
+          <EntitySet Name="Prodotti" EntityType="Self.Prodotti" />
+          <AssociationSet Name="FK_Movimenti_Contatto" Association="Self.FK_Movimenti_Contatto">
+            <End Role="Contatto" EntitySet="Contatto" />
+            <End Role="Movimenti" EntitySet="Movimenti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimenti_Magazzini" Association="Self.FK_Movimenti_Magazzini">
+            <End Role="Magazzini" EntitySet="Magazzini" />
+            <End Role="Movimenti" EntitySet="Movimenti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimenti_Prodotti" Association="Self.FK_Movimenti_Prodotti">
+            <End Role="Prodotti" EntitySet="Prodotti" />
+            <End Role="Movimenti" EntitySet="Movimenti" />
+          </AssociationSet>
+        </EntityContainer>
+        <EnumType Name="enmTipoContatto">
+          <Member Name="Cliente" Value="0" />
+          <Member Name="Fornitore" Value="1" />
+        </EnumType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GestioneMagazziniModelStoreContainer" CdmEntityContainer="GestioneMagazziniEntities">
+          <EntitySetMapping Name="Contatto">
+            <EntityTypeMapping TypeName="GestioneMagazziniModel.Contatto">
+              <MappingFragment StoreEntitySet="Contatto">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Cognome" ColumnName="Cognome" />
+                <ScalarProperty Name="DataDiNascita" ColumnName="DataDiNascita" />
+                <ScalarProperty Name="Indirizzo" ColumnName="Indirizzo" />
+                <ScalarProperty Name="Citta" ColumnName="Citta" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="TipoContatto" ColumnName="TipoContatto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Magazzini">
+            <EntityTypeMapping TypeName="GestioneMagazziniModel.Magazzini">
+              <MappingFragment StoreEntitySet="Magazzini">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Comune" ColumnName="Comune" />
+                <ScalarProperty Name="Indirizzo" ColumnName="Indirizzo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movimenti">
+            <EntityTypeMapping TypeName="GestioneMagazziniModel.Movimenti">
+              <MappingFragment StoreEntitySet="Movimenti">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDProdotto" ColumnName="IDProdotto" />
+                <ScalarProperty Name="IDMagazzino" ColumnName="IDMagazzino" />
+                <ScalarProperty Name="IDContatto" ColumnName="IDContatto" />
+                <ScalarProperty Name="DataMovimento" ColumnName="DataMovimento" />
+                <ScalarProperty Name="TipoMovimento" ColumnName="TipoMovimento" />
+                <ScalarProperty Name="Quantita" ColumnName="Quantita" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prodotti">
+            <EntityTypeMapping TypeName="GestioneMagazziniModel.Prodotti">
+              <MappingFragment StoreEntitySet="Prodotti">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="PrezzoUnitario" ColumnName="PrezzoUnitario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
