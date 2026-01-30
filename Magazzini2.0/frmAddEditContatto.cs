@@ -46,6 +46,7 @@ namespace Magazzini2._0
         }
 
 
+
         private bool ValidaCampi()
         {
             if (string.IsNullOrEmpty(txtbNome.Text) || string.IsNullOrEmpty(txtbCognome.Text) || string.IsNullOrEmpty(txtbIndirizzo.Text) || string.IsNullOrEmpty(txtbCitta.Text) || string.IsNullOrEmpty(txtbEmail.Text) || string.IsNullOrEmpty(txtbTelefono.Text))
