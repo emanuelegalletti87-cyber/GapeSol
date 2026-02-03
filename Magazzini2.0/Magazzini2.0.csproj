@@ -70,6 +70,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddEditProdotto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddEditProdotto.Designer.cs">
+      <DependentUpon>frmAddEditProdotto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddEditContatto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GestioneContattiDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GestioneProdottiDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestioneProdottiDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Magazzini.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -153,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditMagazzini.resx">
       <DependentUpon>frmAddEditMagazzini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddEditProdotto.resx">
+      <DependentUpon>frmAddEditProdotto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmContatti.resx">
       <DependentUpon>frmContatti.cs</DependentUpon>
@@ -200,6 +214,17 @@
     </None>
     <None Include="GestioneContattiDataSet.xss">
       <DependentUpon>GestioneContattiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestioneProdottiDataSet.xsc">
+      <DependentUpon>GestioneProdottiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestioneProdottiDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestioneProdottiDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestioneProdottiDataSet.xss">
+      <DependentUpon>GestioneProdottiDataSet.xsd</DependentUpon>
     </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
