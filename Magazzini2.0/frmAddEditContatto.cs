@@ -73,23 +73,21 @@ namespace Magazzini2._0
                 if (mContatto == null)
                 {
                     isModifica = false;
+                    contatto = new Contatto();
                 }
                 else
                 {
                     contatto = db.Contatto.Where(x => x.ID == mContatto.ID).FirstOrDefault();
                 }
 
-                if (contatto != null)
-                {
-                    contatto.Nome = txtbNome.Text;
-                    contatto.Cognome = txtbCognome.Text;
-                    contatto.DataDiNascita = dtpDataNascita.Value;
-                    contatto.Indirizzo = txtbIndirizzo.Text;
-                    contatto.Citta = txtbCitta.Text;
-                    contatto.EMail = txtbEmail.Text;
-                    contatto.Telefono = txtbTelefono.Text;
-                    contatto.TipoContatto = (enmTipoContatto)comboBoxTipoContatto.SelectedItem;
-                }
+                contatto.Nome = txtbNome.Text;
+                contatto.Cognome = txtbCognome.Text;
+                contatto.DataDiNascita = dtpDataNascita.Value;
+                contatto.Indirizzo = txtbIndirizzo.Text;
+                contatto.Citta = txtbCitta.Text;
+                contatto.EMail = txtbEmail.Text;
+                contatto.Telefono = txtbTelefono.Text;
+                contatto.TipoContatto = (enmTipoContatto)comboBoxTipoContatto.SelectedItem;
 
                 if (!isModifica)
                     db.Contatto.Add(contatto);

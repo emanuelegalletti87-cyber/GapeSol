@@ -56,10 +56,9 @@ namespace Magazzini2._0
 
                     return;
                 }
-                GestioneMagazziniEntities db = new GestioneMagazziniEntities();
-                mListaContatto = db.Contatto.ToList();
-                frmAddEditContatto frmAddEditContatto = new frmAddEditContatto(mListaContatto.ElementAt(dgvContatti.SelectedRows[0].Index));
-                frmAddEditContatto.ShowDialog();
+                GestioneMagazziniEntities db = new GestioneMagazziniEntities(); 
+                frmAddEditContatto gestContatto = new frmAddEditContatto(mListaContatto.ElementAt(dgvContatti.SelectedRows[0].Index));
+                gestContatto.ShowDialog();
                 CaricaContatti();
             }
             catch (Exception ex)
@@ -72,8 +71,10 @@ namespace Magazzini2._0
         private void CaricaContatti()
         {
             GestioneMagazziniEntities db = new GestioneMagazziniEntities();
+            contattoTableAdapter.Fill(GestioneContattiDataSet.Contatto);
             try
             {
+
                 if (string.IsNullOrEmpty(toolStripTxtbContattiCerca.Text))
                 {
                     contattoTableAdapter.Fill(GestioneContattiDataSet.Contatto);
@@ -170,7 +171,7 @@ namespace Magazzini2._0
                 }
                 CaricaContatti();
 
-                if(!mListaContatto.Any())
+                if (!mListaContatto.Any())
                 {
                     MessageBox.Show($"Attenzione! Il contatto: {testoCerca.ToString()}, non esiste, riprovare con un contatto esistente", "Errore di ricerca", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }

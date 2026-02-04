@@ -116,9 +116,9 @@ namespace Magazzini2._0
 
                 DialogResult result = MessageBox.Show($"Attenzione, sei sicuro di voler cancellare il magazzino {magaSelezionato.Nome} ? Non potrai tornare indietro", "Conferma operazione", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.No)
-
+                {
                     return;
-
+                }
 
                 GestioneMagazziniEntities db = new GestioneMagazziniEntities();
 
@@ -153,10 +153,8 @@ namespace Magazzini2._0
                 }
                 CaricaMagazzini();
 
-
                 if (!mlistaMagazzini.Any())
                     MessageBox.Show($"Attenzione! Il magazzino: {testoCerca.ToString()}, non esiste, riprovare con un magazzino esistente", "Errore di ricerca", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
             catch (Exception ex)
             {

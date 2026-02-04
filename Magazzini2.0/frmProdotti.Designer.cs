@@ -63,21 +63,21 @@ namespace Magazzini2._0
             this.toolStripBtnProdoElimina});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(600, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLblCerca
             // 
             this.toolStripLblCerca.Name = "toolStripLblCerca";
-            this.toolStripLblCerca.Size = new System.Drawing.Size(117, 24);
+            this.toolStripLblCerca.Size = new System.Drawing.Size(93, 24);
             this.toolStripLblCerca.Text = "Nome prodotto:";
             // 
             // toolStripTxtbProdottiCerca
             // 
             this.toolStripTxtbProdottiCerca.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTxtbProdottiCerca.Name = "toolStripTxtbProdottiCerca";
-            this.toolStripTxtbProdottiCerca.Size = new System.Drawing.Size(100, 27);
+            this.toolStripTxtbProdottiCerca.Size = new System.Drawing.Size(76, 27);
             // 
             // toolStripBtnProdoCerca
             // 
@@ -85,8 +85,9 @@ namespace Magazzini2._0
             this.toolStripBtnProdoCerca.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnProdoCerca.Image")));
             this.toolStripBtnProdoCerca.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnProdoCerca.Name = "toolStripBtnProdoCerca";
-            this.toolStripBtnProdoCerca.Size = new System.Drawing.Size(29, 24);
+            this.toolStripBtnProdoCerca.Size = new System.Drawing.Size(24, 24);
             this.toolStripBtnProdoCerca.Text = "Cerca";
+            this.toolStripBtnProdoCerca.Click += new System.EventHandler(this.toolStripBtnProdoCerca_Click);
             // 
             // toolStripBtnAggiungi
             // 
@@ -95,7 +96,7 @@ namespace Magazzini2._0
             this.toolStripBtnAggiungi.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnAggiungi.Image")));
             this.toolStripBtnAggiungi.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnAggiungi.Name = "toolStripBtnAggiungi";
-            this.toolStripBtnAggiungi.Size = new System.Drawing.Size(29, 24);
+            this.toolStripBtnAggiungi.Size = new System.Drawing.Size(24, 24);
             this.toolStripBtnAggiungi.Text = "Aggiungi";
             this.toolStripBtnAggiungi.Click += new System.EventHandler(this.toolStripBtnAggiungi_Click);
             // 
@@ -106,8 +107,9 @@ namespace Magazzini2._0
             this.toolStripBtnModifica.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnModifica.Image")));
             this.toolStripBtnModifica.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnModifica.Name = "toolStripBtnModifica";
-            this.toolStripBtnModifica.Size = new System.Drawing.Size(29, 24);
+            this.toolStripBtnModifica.Size = new System.Drawing.Size(24, 24);
             this.toolStripBtnModifica.Text = "Modifica";
+            this.toolStripBtnModifica.Click += new System.EventHandler(this.toolStripBtnModifica_Click);
             // 
             // toolStripBtnProdoElimina
             // 
@@ -116,14 +118,20 @@ namespace Magazzini2._0
             this.toolStripBtnProdoElimina.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnProdoElimina.Image")));
             this.toolStripBtnProdoElimina.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnProdoElimina.Name = "toolStripBtnProdoElimina";
-            this.toolStripBtnProdoElimina.Size = new System.Drawing.Size(29, 24);
+            this.toolStripBtnProdoElimina.Size = new System.Drawing.Size(24, 24);
             this.toolStripBtnProdoElimina.Text = "Elimina";
             this.toolStripBtnProdoElimina.ToolTipText = "Elimina";
+            this.toolStripBtnProdoElimina.Click += new System.EventHandler(this.toolStripBtnProdoElimina_Click);
             // 
             // dgvProdotti
             // 
             this.dgvProdotti.AllowUserToAddRows = false;
             this.dgvProdotti.AllowUserToDeleteRows = false;
+            this.dgvProdotti.AllowUserToResizeColumns = false;
+            this.dgvProdotti.AllowUserToResizeRows = false;
+            this.dgvProdotti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProdotti.AutoGenerateColumns = false;
             this.dgvProdotti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProdotti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -132,13 +140,14 @@ namespace Magazzini2._0
             this.descrizioneDataGridViewTextBoxColumn,
             this.prezzoUnitarioDataGridViewTextBoxColumn});
             this.dgvProdotti.DataSource = this.prodottiBindingSource;
-            this.dgvProdotti.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProdotti.Location = new System.Drawing.Point(0, 27);
+            this.dgvProdotti.Location = new System.Drawing.Point(0, 22);
+            this.dgvProdotti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvProdotti.Name = "dgvProdotti";
             this.dgvProdotti.ReadOnly = true;
             this.dgvProdotti.RowHeadersWidth = 51;
             this.dgvProdotti.RowTemplate.Height = 24;
-            this.dgvProdotti.Size = new System.Drawing.Size(800, 423);
+            this.dgvProdotti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProdotti.Size = new System.Drawing.Size(600, 344);
             this.dgvProdotti.TabIndex = 1;
             // 
             // nomeDataGridViewTextBoxColumn
@@ -181,11 +190,12 @@ namespace Magazzini2._0
             // 
             // frmProdotti
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.dgvProdotti);
             this.Controls.Add(this.toolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmProdotti";
             this.Text = "Gestione Prodotti";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
