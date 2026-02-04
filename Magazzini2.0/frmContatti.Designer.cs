@@ -68,21 +68,21 @@ namespace Magazzini2._0
             this.toolStripBtnContattiElimina});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(600, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLblContattiCerca
             // 
             this.toolStripLblContattiCerca.Name = "toolStripLblContattiCerca";
-            this.toolStripLblContattiCerca.Size = new System.Drawing.Size(113, 24);
+            this.toolStripLblContattiCerca.Size = new System.Drawing.Size(91, 24);
             this.toolStripLblContattiCerca.Text = "Nome contatto:";
             // 
             // toolStripTxtbContattiCerca
             // 
             this.toolStripTxtbContattiCerca.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTxtbContattiCerca.Name = "toolStripTxtbContattiCerca";
-            this.toolStripTxtbContattiCerca.Size = new System.Drawing.Size(100, 27);
+            this.toolStripTxtbContattiCerca.Size = new System.Drawing.Size(76, 27);
             // 
             // toolStripBtnContattiCerca
             // 
@@ -90,8 +90,9 @@ namespace Magazzini2._0
             this.toolStripBtnContattiCerca.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnContattiCerca.Image")));
             this.toolStripBtnContattiCerca.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnContattiCerca.Name = "toolStripBtnContattiCerca";
-            this.toolStripBtnContattiCerca.Size = new System.Drawing.Size(29, 24);
+            this.toolStripBtnContattiCerca.Size = new System.Drawing.Size(24, 24);
             this.toolStripBtnContattiCerca.ToolTipText = "Cerca";
+            this.toolStripBtnContattiCerca.Click += new System.EventHandler(this.toolStripBtnContattiCerca_Click);
             // 
             // toolStripBtnContattiAggiungi
             // 
@@ -100,7 +101,7 @@ namespace Magazzini2._0
             this.toolStripBtnContattiAggiungi.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnContattiAggiungi.Image")));
             this.toolStripBtnContattiAggiungi.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnContattiAggiungi.Name = "toolStripBtnContattiAggiungi";
-            this.toolStripBtnContattiAggiungi.Size = new System.Drawing.Size(29, 24);
+            this.toolStripBtnContattiAggiungi.Size = new System.Drawing.Size(24, 24);
             this.toolStripBtnContattiAggiungi.ToolTipText = "Aggiungi";
             this.toolStripBtnContattiAggiungi.Click += new System.EventHandler(this.toolStripBtnContattiAggiungi_Click);
             // 
@@ -111,7 +112,7 @@ namespace Magazzini2._0
             this.toolStripBtnContattiModifica.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnContattiModifica.Image")));
             this.toolStripBtnContattiModifica.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnContattiModifica.Name = "toolStripBtnContattiModifica";
-            this.toolStripBtnContattiModifica.Size = new System.Drawing.Size(29, 24);
+            this.toolStripBtnContattiModifica.Size = new System.Drawing.Size(24, 24);
             this.toolStripBtnContattiModifica.ToolTipText = "Modifica";
             this.toolStripBtnContattiModifica.Click += new System.EventHandler(this.toolStripBtnContattiModifica_Click);
             // 
@@ -122,8 +123,9 @@ namespace Magazzini2._0
             this.toolStripBtnContattiElimina.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnContattiElimina.Image")));
             this.toolStripBtnContattiElimina.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnContattiElimina.Name = "toolStripBtnContattiElimina";
-            this.toolStripBtnContattiElimina.Size = new System.Drawing.Size(29, 24);
+            this.toolStripBtnContattiElimina.Size = new System.Drawing.Size(24, 24);
             this.toolStripBtnContattiElimina.ToolTipText = "Elimina";
+            this.toolStripBtnContattiElimina.Click += new System.EventHandler(this.toolStripBtnContattiElimina_Click);
             // 
             // dgvContatti
             // 
@@ -146,14 +148,14 @@ namespace Magazzini2._0
             this.dgvContatti.DataSource = this.contattoBindingSource;
             this.dgvContatti.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvContatti.Location = new System.Drawing.Point(0, 27);
-            this.dgvContatti.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvContatti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvContatti.MultiSelect = false;
             this.dgvContatti.Name = "dgvContatti";
             this.dgvContatti.ReadOnly = true;
             this.dgvContatti.RowHeadersWidth = 51;
             this.dgvContatti.RowTemplate.Height = 24;
             this.dgvContatti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvContatti.Size = new System.Drawing.Size(800, 423);
+            this.dgvContatti.Size = new System.Drawing.Size(600, 339);
             this.dgvContatti.TabIndex = 1;
             this.dgvContatti.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvContatti_CellFormatting);
             // 
@@ -237,12 +239,12 @@ namespace Magazzini2._0
             // 
             // frmContatti
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.dgvContatti);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmContatti";
             this.Text = "Gestione Contatti";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

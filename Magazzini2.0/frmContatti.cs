@@ -27,7 +27,7 @@ namespace Magazzini2._0
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore sconosciuto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -37,11 +37,11 @@ namespace Magazzini2._0
             {
                 frmAddEditContatto frmAddEditContatto = new frmAddEditContatto();
                 frmAddEditContatto.ShowDialog();
-                contattoTableAdapter.Fill(GestioneContattiDataSet.Contatto);
+                CaricaContatti();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore sconosciuto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -64,7 +64,7 @@ namespace Magazzini2._0
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore sconosciuto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -93,7 +93,7 @@ namespace Magazzini2._0
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore sconosciuto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -118,9 +118,66 @@ namespace Magazzini2._0
                     e.FormattingApplied = true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Si è verificato un errore sconosciuto, riprovare.", "errore sconosciuto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void toolStripBtnContattiElimina_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvContatti.SelectedRows.Count != 1)
+                {
+                    MessageBox.Show("Attenzione, selezionare il contatto da eliminare.", "Validazione input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                Contatto contattoSelezionato = new Contatto();
+                contattoSelezionato = mListaContatto.ElementAt(dgvContatti.SelectedRows[0].Index);
+
+                DialogResult result = MessageBox.Show($"Attenzione, sei sicuro di voler cancellare il contatto: {contattoSelezionato.Nome} ? Non potrai tornare indietro", "Conferma operazione", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.No)
+
+                    return;
+
+                GestioneMagazziniEntities db = new GestioneMagazziniEntities();
+                Contatto contDB = db.Contatto.Where(x => x.ID == contattoSelezionato.ID).FirstOrDefault();
+
+                if (contDB != null)
+                {
+                    db.Contatto.Remove(contDB);
+                    db.SaveChanges();
+                }
+
+                CaricaContatti();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void toolStripBtnContattiCerca_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string testoCerca = toolStripTxtbContattiCerca.Text;
+                if (string.IsNullOrEmpty(testoCerca))
+                {
+                    MessageBox.Show("Inserire un testo nel campo cerca.", "Errore di ricerca", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                CaricaContatti();
+
+                if(!mListaContatto.Any())
+                {
+                    MessageBox.Show($"Attenzione! Il contatto: {testoCerca.ToString()}, non esiste, riprovare con un contatto esistente", "Errore di ricerca", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Si è verificato un errore: {ex}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

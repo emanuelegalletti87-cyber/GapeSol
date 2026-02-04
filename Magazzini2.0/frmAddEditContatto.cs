@@ -91,7 +91,7 @@ namespace Magazzini2._0
                     contatto.TipoContatto = (enmTipoContatto)comboBoxTipoContatto.SelectedItem;
                 }
 
-                if (isModifica)
+                if (!isModifica)
                     db.Contatto.Add(contatto);
 
                 db.SaveChanges();

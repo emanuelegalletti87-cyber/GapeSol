@@ -17,7 +17,7 @@ namespace Magazzini2._0
         public Magazzini Magazzino
         {
             get { return mMagazzino; }
-            set { mMagazzino = Magazzino; }
+            set { mMagazzino = value; }
         }
 
         public frmAddEditMagazzini()

@@ -33,7 +33,7 @@ namespace Magazzini2._0
         private void CaricaMagazzini()
         {
             GestioneMagazziniEntities db = new GestioneMagazziniEntities();
-            gestioneMagazziniDataSet.Reset();
+            magazziniTableAdapter.Fill(gestioneMagazziniDataSet.Magazzini);
             try
             {
                 if (string.IsNullOrEmpty(toolStripTxtbMagaCerca.Text))
@@ -105,7 +105,7 @@ namespace Magazzini2._0
         {
             try
             {
-                if (dgvMagazzini.SelectedRows.Count <= 0)
+                if (dgvMagazzini.SelectedRows.Count != 1)
                 {
                     MessageBox.Show("Attenzione, selezionare il magazzino da eliminare.", "Validazione input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -148,7 +148,7 @@ namespace Magazzini2._0
                 string testoCerca = toolStripTxtbMagaCerca.Text;
                 if (string.IsNullOrEmpty(testoCerca))
                 {
-                    MessageBox.Show($"Inserire un testo nel campo cerca.", "Errore di ricerca", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Inserire un testo nel campo cerca.", "Errore di ricerca", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 CaricaMagazzini();
