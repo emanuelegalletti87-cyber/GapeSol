@@ -16,5 +16,25 @@ namespace Magazzini2._0
         {
             InitializeComponent();
         }
+
+        private ToolStripControlHost _dtpHost;
+
+        private void frmMovimenti_Load(object sender, EventArgs e)
+        {
+            var dtp = new DateTimePicker
+            {
+                Format = DateTimePickerFormat.Long,
+                Width = 170 // regola a piacere
+            };
+
+            _dtpHost = new ToolStripControlHost(dtp)
+            {
+                Margin = new Padding(0, 0, 0, 0),
+                Padding = new Padding(0),
+                AutoSize = false
+            };
+
+            toolStrip1.Items.Add(_dtpHost);
+        }
     }
 }
