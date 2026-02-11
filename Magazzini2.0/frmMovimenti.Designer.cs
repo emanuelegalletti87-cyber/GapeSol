@@ -29,15 +29,24 @@ namespace Magazzini2._0
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMovimenti));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStriplblCerca = new System.Windows.Forms.ToolStripLabel();
+            this.txtbCerca = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.lblDa = new System.Windows.Forms.ToolStripLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolStripBtnCerca = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnAggiungi = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnModifica = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnElimina = new System.Windows.Forms.ToolStripButton();
+            this.lblMovEntrata = new System.Windows.Forms.Label();
+            this.lblMovUscita = new System.Windows.Forms.Label();
+            this.lblTotUscita = new System.Windows.Forms.Label();
+            this.lblTotEntrata = new System.Windows.Forms.Label();
+            this.toolStripLblFiltro = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -46,13 +55,17 @@ namespace Magazzini2._0
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLblFiltro,
             this.toolStripComboBox1,
             this.toolStripSeparator1,
-            this.toolStripLabel1,
-            this.toolStripTextBox1,
+            this.toolStriplblCerca,
+            this.txtbCerca,
+            this.toolStripBtnCerca,
             this.toolStripSeparator2,
-            this.toolStripLabel2,
-            this.toolStripLabel3});
+            this.lblDa,
+            this.toolStripBtnAggiungi,
+            this.toolStripBtnModifica,
+            this.toolStripBtnElimina});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(929, 31);
@@ -69,53 +82,140 @@ namespace Magazzini2._0
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
-            // toolStripLabel1
+            // toolStriplblCerca
             // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(111, 28);
-            this.toolStripLabel1.Text = "toolStripLabel1";
+            this.toolStriplblCerca.Name = "toolStriplblCerca";
+            this.toolStriplblCerca.Size = new System.Drawing.Size(46, 28);
+            this.toolStriplblCerca.Text = "Cerca";
             // 
-            // toolStripTextBox1
+            // txtbCerca
             // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 31);
+            this.txtbCerca.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtbCerca.Name = "txtbCerca";
+            this.txtbCerca.Size = new System.Drawing.Size(100, 31);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
-            // toolStripLabel2
+            // lblDa
             // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(111, 28);
-            this.toolStripLabel2.Text = "toolStripLabel2";
-            // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(111, 28);
-            this.toolStripLabel3.Text = "toolStripLabel3";
+            this.lblDa.MergeIndex = 6;
+            this.lblDa.Name = "lblDa";
+            this.lblDa.Size = new System.Drawing.Size(26, 28);
+            this.lblDa.Text = "da";
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 31);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(929, 453);
+            this.dataGridView1.Size = new System.Drawing.Size(929, 385);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // toolStripBtnCerca
+            // 
+            this.toolStripBtnCerca.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnCerca.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnCerca.Image")));
+            this.toolStripBtnCerca.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnCerca.Name = "toolStripBtnCerca";
+            this.toolStripBtnCerca.Size = new System.Drawing.Size(29, 28);
+            this.toolStripBtnCerca.Text = "toolStripButton1";
+            this.toolStripBtnCerca.ToolTipText = "Cerca";
+            // 
+            // toolStripBtnAggiungi
+            // 
+            this.toolStripBtnAggiungi.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripBtnAggiungi.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnAggiungi.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnAggiungi.Image")));
+            this.toolStripBtnAggiungi.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnAggiungi.Name = "toolStripBtnAggiungi";
+            this.toolStripBtnAggiungi.Size = new System.Drawing.Size(29, 28);
+            this.toolStripBtnAggiungi.Text = "Aggiungi";
+            // 
+            // toolStripBtnModifica
+            // 
+            this.toolStripBtnModifica.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripBtnModifica.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnModifica.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnModifica.Image")));
+            this.toolStripBtnModifica.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnModifica.Name = "toolStripBtnModifica";
+            this.toolStripBtnModifica.Size = new System.Drawing.Size(29, 28);
+            this.toolStripBtnModifica.Text = "Modifica";
+            // 
+            // toolStripBtnElimina
+            // 
+            this.toolStripBtnElimina.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripBtnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnElimina.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnElimina.Image")));
+            this.toolStripBtnElimina.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnElimina.Name = "toolStripBtnElimina";
+            this.toolStripBtnElimina.Size = new System.Drawing.Size(29, 28);
+            this.toolStripBtnElimina.Text = "Elimina";
+            // 
+            // lblMovEntrata
+            // 
+            this.lblMovEntrata.AutoSize = true;
+            this.lblMovEntrata.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblMovEntrata.Location = new System.Drawing.Point(0, 467);
+            this.lblMovEntrata.Name = "lblMovEntrata";
+            this.lblMovEntrata.Size = new System.Drawing.Size(157, 17);
+            this.lblMovEntrata.TabIndex = 2;
+            this.lblMovEntrata.Text = "n° movimenti in entrata:";
+            // 
+            // lblMovUscita
+            // 
+            this.lblMovUscita.AutoSize = true;
+            this.lblMovUscita.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblMovUscita.Location = new System.Drawing.Point(0, 450);
+            this.lblMovUscita.Name = "lblMovUscita";
+            this.lblMovUscita.Size = new System.Drawing.Size(149, 17);
+            this.lblMovUscita.TabIndex = 3;
+            this.lblMovUscita.Text = "n° movimenti in uscita:";
+            // 
+            // lblTotUscita
+            // 
+            this.lblTotUscita.AutoSize = true;
+            this.lblTotUscita.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblTotUscita.Location = new System.Drawing.Point(0, 433);
+            this.lblTotUscita.Name = "lblTotUscita";
+            this.lblTotUscita.Size = new System.Drawing.Size(152, 17);
+            this.lblTotUscita.TabIndex = 4;
+            this.lblTotUscita.Text = "totale denaro in uscita:";
+            // 
+            // lblTotEntrata
+            // 
+            this.lblTotEntrata.AutoSize = true;
+            this.lblTotEntrata.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblTotEntrata.Location = new System.Drawing.Point(0, 416);
+            this.lblTotEntrata.Name = "lblTotEntrata";
+            this.lblTotEntrata.Size = new System.Drawing.Size(164, 17);
+            this.lblTotEntrata.TabIndex = 5;
+            this.lblTotEntrata.Text = "totale denaro in entrata: ";
+            // 
+            // toolStripLblFiltro
+            // 
+            this.toolStripLblFiltro.Name = "toolStripLblFiltro";
+            this.toolStripLblFiltro.Size = new System.Drawing.Size(46, 28);
+            this.toolStripLblFiltro.Text = "Filtro:";
             // 
             // frmMovimenti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 484);
+            this.Controls.Add(this.lblTotEntrata);
+            this.Controls.Add(this.lblTotUscita);
+            this.Controls.Add(this.lblMovUscita);
+            this.Controls.Add(this.lblMovEntrata);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -136,11 +236,19 @@ namespace Magazzini2._0
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripLabel toolStriplblCerca;
+        private System.Windows.Forms.ToolStripTextBox txtbCerca;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripLabel lblDa;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripButton toolStripBtnCerca;
+        private System.Windows.Forms.ToolStripButton toolStripBtnAggiungi;
+        private System.Windows.Forms.ToolStripButton toolStripBtnModifica;
+        private System.Windows.Forms.ToolStripButton toolStripBtnElimina;
+        private System.Windows.Forms.Label lblMovEntrata;
+        private System.Windows.Forms.Label lblMovUscita;
+        private System.Windows.Forms.Label lblTotUscita;
+        private System.Windows.Forms.Label lblTotEntrata;
+        private System.Windows.Forms.ToolStripLabel toolStripLblFiltro;
     }
 }

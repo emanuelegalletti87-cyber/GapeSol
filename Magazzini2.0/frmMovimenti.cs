@@ -17,24 +17,45 @@ namespace Magazzini2._0
             InitializeComponent();
         }
 
-        private ToolStripControlHost _dtpHost;
+        private ToolStripControlHost dtpDa;
+        private ToolStripControlHost dtpA;
 
         private void frmMovimenti_Load(object sender, EventArgs e)
         {
-            var dtp = new DateTimePicker
+            try
             {
-                Format = DateTimePickerFormat.Long,
-                Width = 170 // regola a piacere
-            };
+                var _dtp = new DateTimePicker
+                {
+                    Format = DateTimePickerFormat.Long,
+                    Width = 170 // regola a piacere
+                };
+                var _dtp2 = new DateTimePicker
+                {
+                    Format = DateTimePickerFormat.Long,
+                    Width = 170 // regola a piacere
+                };
 
-            _dtpHost = new ToolStripControlHost(dtp)
+                dtpDa = new ToolStripControlHost(_dtp)
+                {
+                    Margin = new Padding(0, 0, 0, 0),
+                    Padding = new Padding(0),
+                    AutoSize = false
+                };
+                dtpA = new ToolStripControlHost(_dtp2)
+                {
+                    Margin = new Padding(0, 0, 0, 0),
+                    Padding = new Padding(0),
+                    AutoSize = false
+                };
+                ToolStripLabel lblA = new ToolStripLabel("a");
+                toolStrip1.Items.Insert(8, dtpDa);
+                toolStrip1.Items.Insert(9, lblA);
+                toolStrip1.Items.Insert(10, dtpA);
+            }
+            catch (Exception ex)
             {
-                Margin = new Padding(0, 0, 0, 0),
-                Padding = new Padding(0),
-                AutoSize = false
-            };
-
-            toolStrip1.Items.Add(_dtpHost);
+                MessageBox.Show(ex.Message, " Errore sconosciuto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
