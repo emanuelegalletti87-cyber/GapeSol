@@ -31,22 +31,22 @@ namespace Magazzini2._0
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMovimenti));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLblFiltro = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStriplblCerca = new System.Windows.Forms.ToolStripLabel();
             this.txtbCerca = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripBtnCerca = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.lblDa = new System.Windows.Forms.ToolStripLabel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.toolStripBtnCerca = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnAggiungi = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnModifica = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnElimina = new System.Windows.Forms.ToolStripButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblMovEntrata = new System.Windows.Forms.Label();
             this.lblMovUscita = new System.Windows.Forms.Label();
             this.lblTotUscita = new System.Windows.Forms.Label();
             this.lblTotEntrata = new System.Windows.Forms.Label();
-            this.toolStripLblFiltro = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -68,43 +68,89 @@ namespace Magazzini2._0
             this.toolStripBtnElimina});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(929, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(929, 28);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLblFiltro
+            // 
+            this.toolStripLblFiltro.Name = "toolStripLblFiltro";
+            this.toolStripLblFiltro.Size = new System.Drawing.Size(46, 25);
+            this.toolStripLblFiltro.Text = "Filtro:";
             // 
             // toolStripComboBox1
             // 
             this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 31);
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 28);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
             // 
             // toolStriplblCerca
             // 
             this.toolStriplblCerca.Name = "toolStriplblCerca";
-            this.toolStriplblCerca.Size = new System.Drawing.Size(46, 28);
+            this.toolStriplblCerca.Size = new System.Drawing.Size(46, 25);
             this.toolStriplblCerca.Text = "Cerca";
             // 
             // txtbCerca
             // 
             this.txtbCerca.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtbCerca.Name = "txtbCerca";
-            this.txtbCerca.Size = new System.Drawing.Size(100, 31);
+            this.txtbCerca.Size = new System.Drawing.Size(100, 28);
+            // 
+            // toolStripBtnCerca
+            // 
+            this.toolStripBtnCerca.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnCerca.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnCerca.Image")));
+            this.toolStripBtnCerca.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnCerca.Name = "toolStripBtnCerca";
+            this.toolStripBtnCerca.Size = new System.Drawing.Size(29, 25);
+            this.toolStripBtnCerca.Text = "toolStripButton1";
+            this.toolStripBtnCerca.ToolTipText = "Cerca";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 28);
             // 
             // lblDa
             // 
             this.lblDa.MergeIndex = 6;
             this.lblDa.Name = "lblDa";
-            this.lblDa.Size = new System.Drawing.Size(26, 28);
+            this.lblDa.Size = new System.Drawing.Size(26, 25);
             this.lblDa.Text = "da";
+            // 
+            // toolStripBtnAggiungi
+            // 
+            this.toolStripBtnAggiungi.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripBtnAggiungi.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnAggiungi.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnAggiungi.Image")));
+            this.toolStripBtnAggiungi.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnAggiungi.Name = "toolStripBtnAggiungi";
+            this.toolStripBtnAggiungi.Size = new System.Drawing.Size(29, 25);
+            this.toolStripBtnAggiungi.Text = "Aggiungi";
+            // 
+            // toolStripBtnModifica
+            // 
+            this.toolStripBtnModifica.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripBtnModifica.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnModifica.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnModifica.Image")));
+            this.toolStripBtnModifica.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnModifica.Name = "toolStripBtnModifica";
+            this.toolStripBtnModifica.Size = new System.Drawing.Size(29, 25);
+            this.toolStripBtnModifica.Text = "Modifica";
+            // 
+            // toolStripBtnElimina
+            // 
+            this.toolStripBtnElimina.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripBtnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBtnElimina.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnElimina.Image")));
+            this.toolStripBtnElimina.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnElimina.Name = "toolStripBtnElimina";
+            this.toolStripBtnElimina.Size = new System.Drawing.Size(29, 25);
+            this.toolStripBtnElimina.Text = "Elimina";
             // 
             // dataGridView1
             // 
@@ -120,46 +166,6 @@ namespace Magazzini2._0
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(929, 385);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // toolStripBtnCerca
-            // 
-            this.toolStripBtnCerca.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripBtnCerca.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnCerca.Image")));
-            this.toolStripBtnCerca.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnCerca.Name = "toolStripBtnCerca";
-            this.toolStripBtnCerca.Size = new System.Drawing.Size(29, 28);
-            this.toolStripBtnCerca.Text = "toolStripButton1";
-            this.toolStripBtnCerca.ToolTipText = "Cerca";
-            // 
-            // toolStripBtnAggiungi
-            // 
-            this.toolStripBtnAggiungi.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripBtnAggiungi.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripBtnAggiungi.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnAggiungi.Image")));
-            this.toolStripBtnAggiungi.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnAggiungi.Name = "toolStripBtnAggiungi";
-            this.toolStripBtnAggiungi.Size = new System.Drawing.Size(29, 28);
-            this.toolStripBtnAggiungi.Text = "Aggiungi";
-            // 
-            // toolStripBtnModifica
-            // 
-            this.toolStripBtnModifica.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripBtnModifica.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripBtnModifica.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnModifica.Image")));
-            this.toolStripBtnModifica.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnModifica.Name = "toolStripBtnModifica";
-            this.toolStripBtnModifica.Size = new System.Drawing.Size(29, 28);
-            this.toolStripBtnModifica.Text = "Modifica";
-            // 
-            // toolStripBtnElimina
-            // 
-            this.toolStripBtnElimina.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripBtnElimina.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripBtnElimina.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnElimina.Image")));
-            this.toolStripBtnElimina.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnElimina.Name = "toolStripBtnElimina";
-            this.toolStripBtnElimina.Size = new System.Drawing.Size(29, 28);
-            this.toolStripBtnElimina.Text = "Elimina";
             // 
             // lblMovEntrata
             // 
@@ -200,12 +206,6 @@ namespace Magazzini2._0
             this.lblTotEntrata.Size = new System.Drawing.Size(164, 17);
             this.lblTotEntrata.TabIndex = 5;
             this.lblTotEntrata.Text = "totale denaro in entrata: ";
-            // 
-            // toolStripLblFiltro
-            // 
-            this.toolStripLblFiltro.Name = "toolStripLblFiltro";
-            this.toolStripLblFiltro.Size = new System.Drawing.Size(46, 28);
-            this.toolStripLblFiltro.Text = "Filtro:";
             // 
             // frmMovimenti
             // 
