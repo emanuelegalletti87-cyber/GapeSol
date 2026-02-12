@@ -16,5 +16,12 @@ namespace Magazzini2._0
         {
             InitializeComponent();
         }
+
+        private void frmMovimenti_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'gestioneMagazziniDataSet1.Movimenti' table. You can move, or remove it, as needed.
+            this.movimentiTableAdapter.Fill(this.gestioneMagazziniDataSet1.Movimenti);
+
+        }
     }
 }
