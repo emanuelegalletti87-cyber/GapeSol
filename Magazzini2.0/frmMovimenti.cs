@@ -57,5 +57,18 @@ namespace Magazzini2._0
                 MessageBox.Show(ex.Message, " Errore sconosciuto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void toolStripBtnAggiungi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmAddEditMovimenti frm = new frmAddEditMovimenti();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " Errore sconosciuto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
