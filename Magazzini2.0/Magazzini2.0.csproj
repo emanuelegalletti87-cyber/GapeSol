@@ -70,6 +70,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddEditMovimenti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddEditMovimenti.Designer.cs">
+      <DependentUpon>frmAddEditMovimenti.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddEditProdotto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddEditMovimenti.resx">
+      <DependentUpon>frmAddEditMovimenti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditContatto.resx">
       <DependentUpon>frmAddEditContatto.cs</DependentUpon>
