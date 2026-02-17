@@ -29,6 +29,7 @@ namespace Magazzini2._0
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMovimenti));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLblFiltro = new System.Windows.Forms.ToolStripLabel();
@@ -43,12 +44,23 @@ namespace Magazzini2._0
             this.toolStripBtnModifica = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnElimina = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDProdottoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDMagazzinoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDContattoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataMovimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoMovimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.movimentiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gestioneMovimentiDataSet = new Magazzini2._0.GestioneMovimentiDataSet();
             this.lblMovEntrata = new System.Windows.Forms.Label();
             this.lblMovUscita = new System.Windows.Forms.Label();
             this.lblTotUscita = new System.Windows.Forms.Label();
             this.lblTotEntrata = new System.Windows.Forms.Label();
+            this.movimentiTableAdapter = new Magazzini2._0.GestioneMovimentiDataSetTableAdapters.MovimentiTableAdapter();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimentiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestioneMovimentiDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -68,37 +80,37 @@ namespace Magazzini2._0
             this.toolStripBtnElimina});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(697, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(929, 28);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLblFiltro
             // 
             this.toolStripLblFiltro.Name = "toolStripLblFiltro";
-            this.toolStripLblFiltro.Size = new System.Drawing.Size(37, 24);
+            this.toolStripLblFiltro.Size = new System.Drawing.Size(46, 25);
             this.toolStripLblFiltro.Text = "Filtro:";
             // 
             // toolStripComboBox1
             // 
             this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(92, 27);
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 28);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
             // 
             // toolStriplblCerca
             // 
             this.toolStriplblCerca.Name = "toolStriplblCerca";
-            this.toolStriplblCerca.Size = new System.Drawing.Size(37, 24);
+            this.toolStriplblCerca.Size = new System.Drawing.Size(46, 25);
             this.toolStriplblCerca.Text = "Cerca";
             // 
             // txtbCerca
             // 
             this.txtbCerca.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtbCerca.Name = "txtbCerca";
-            this.txtbCerca.Size = new System.Drawing.Size(76, 27);
+            this.txtbCerca.Size = new System.Drawing.Size(100, 28);
             // 
             // toolStripBtnCerca
             // 
@@ -106,20 +118,20 @@ namespace Magazzini2._0
             this.toolStripBtnCerca.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnCerca.Image")));
             this.toolStripBtnCerca.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnCerca.Name = "toolStripBtnCerca";
-            this.toolStripBtnCerca.Size = new System.Drawing.Size(24, 24);
+            this.toolStripBtnCerca.Size = new System.Drawing.Size(29, 25);
             this.toolStripBtnCerca.Text = "toolStripButton1";
             this.toolStripBtnCerca.ToolTipText = "Cerca";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 28);
             // 
             // lblDa
             // 
             this.lblDa.MergeIndex = 6;
             this.lblDa.Name = "lblDa";
-            this.lblDa.Size = new System.Drawing.Size(20, 24);
+            this.lblDa.Size = new System.Drawing.Size(26, 25);
             this.lblDa.Text = "da";
             // 
             // toolStripBtnAggiungi
@@ -129,7 +141,7 @@ namespace Magazzini2._0
             this.toolStripBtnAggiungi.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnAggiungi.Image")));
             this.toolStripBtnAggiungi.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnAggiungi.Name = "toolStripBtnAggiungi";
-            this.toolStripBtnAggiungi.Size = new System.Drawing.Size(24, 24);
+            this.toolStripBtnAggiungi.Size = new System.Drawing.Size(29, 25);
             this.toolStripBtnAggiungi.Text = "Aggiungi";
             this.toolStripBtnAggiungi.Click += new System.EventHandler(this.toolStripBtnAggiungi_Click);
             // 
@@ -140,7 +152,7 @@ namespace Magazzini2._0
             this.toolStripBtnModifica.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnModifica.Image")));
             this.toolStripBtnModifica.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnModifica.Name = "toolStripBtnModifica";
-            this.toolStripBtnModifica.Size = new System.Drawing.Size(24, 24);
+            this.toolStripBtnModifica.Size = new System.Drawing.Size(29, 25);
             this.toolStripBtnModifica.Text = "Modifica";
             // 
             // toolStripBtnElimina
@@ -150,7 +162,7 @@ namespace Magazzini2._0
             this.toolStripBtnElimina.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnElimina.Image")));
             this.toolStripBtnElimina.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnElimina.Name = "toolStripBtnElimina";
-            this.toolStripBtnElimina.Size = new System.Drawing.Size(24, 24);
+            this.toolStripBtnElimina.Size = new System.Drawing.Size(29, 25);
             this.toolStripBtnElimina.Text = "Elimina";
             // 
             // dataGridView1
@@ -160,23 +172,95 @@ namespace Magazzini2._0
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 23);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDProdottoDataGridViewTextBoxColumn,
+            this.iDMagazzinoDataGridViewTextBoxColumn,
+            this.iDContattoDataGridViewTextBoxColumn,
+            this.dataMovimentoDataGridViewTextBoxColumn,
+            this.tipoMovimentoDataGridViewTextBoxColumn,
+            this.quantitaDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.movimentiBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(697, 313);
+            this.dataGridView1.Size = new System.Drawing.Size(929, 385);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // iDProdottoDataGridViewTextBoxColumn
+            // 
+            this.iDProdottoDataGridViewTextBoxColumn.DataPropertyName = "IDProdotto";
+            this.iDProdottoDataGridViewTextBoxColumn.HeaderText = "IDProdotto";
+            this.iDProdottoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDProdottoDataGridViewTextBoxColumn.Name = "iDProdottoDataGridViewTextBoxColumn";
+            this.iDProdottoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDProdottoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // iDMagazzinoDataGridViewTextBoxColumn
+            // 
+            this.iDMagazzinoDataGridViewTextBoxColumn.DataPropertyName = "IDMagazzino";
+            this.iDMagazzinoDataGridViewTextBoxColumn.HeaderText = "IDMagazzino";
+            this.iDMagazzinoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDMagazzinoDataGridViewTextBoxColumn.Name = "iDMagazzinoDataGridViewTextBoxColumn";
+            this.iDMagazzinoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDMagazzinoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // iDContattoDataGridViewTextBoxColumn
+            // 
+            this.iDContattoDataGridViewTextBoxColumn.DataPropertyName = "IDContatto";
+            this.iDContattoDataGridViewTextBoxColumn.HeaderText = "IDContatto";
+            this.iDContattoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDContattoDataGridViewTextBoxColumn.Name = "iDContattoDataGridViewTextBoxColumn";
+            this.iDContattoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDContattoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dataMovimentoDataGridViewTextBoxColumn
+            // 
+            this.dataMovimentoDataGridViewTextBoxColumn.DataPropertyName = "DataMovimento";
+            this.dataMovimentoDataGridViewTextBoxColumn.HeaderText = "DataMovimento";
+            this.dataMovimentoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dataMovimentoDataGridViewTextBoxColumn.Name = "dataMovimentoDataGridViewTextBoxColumn";
+            this.dataMovimentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataMovimentoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // tipoMovimentoDataGridViewTextBoxColumn
+            // 
+            this.tipoMovimentoDataGridViewTextBoxColumn.DataPropertyName = "TipoMovimento";
+            this.tipoMovimentoDataGridViewTextBoxColumn.HeaderText = "TipoMovimento";
+            this.tipoMovimentoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tipoMovimentoDataGridViewTextBoxColumn.Name = "tipoMovimentoDataGridViewTextBoxColumn";
+            this.tipoMovimentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipoMovimentoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // quantitaDataGridViewTextBoxColumn
+            // 
+            this.quantitaDataGridViewTextBoxColumn.DataPropertyName = "Quantita";
+            this.quantitaDataGridViewTextBoxColumn.HeaderText = "Quantita";
+            this.quantitaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.quantitaDataGridViewTextBoxColumn.Name = "quantitaDataGridViewTextBoxColumn";
+            this.quantitaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantitaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // movimentiBindingSource
+            // 
+            this.movimentiBindingSource.DataMember = "Movimenti";
+            this.movimentiBindingSource.DataSource = this.gestioneMovimentiDataSet;
+            // 
+            // gestioneMovimentiDataSet
+            // 
+            this.gestioneMovimentiDataSet.DataSetName = "GestioneMovimentiDataSet";
+            this.gestioneMovimentiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblMovEntrata
             // 
             this.lblMovEntrata.AutoSize = true;
             this.lblMovEntrata.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMovEntrata.Location = new System.Drawing.Point(0, 380);
-            this.lblMovEntrata.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMovEntrata.Location = new System.Drawing.Point(0, 467);
             this.lblMovEntrata.Name = "lblMovEntrata";
-            this.lblMovEntrata.Size = new System.Drawing.Size(117, 13);
+            this.lblMovEntrata.Size = new System.Drawing.Size(157, 17);
             this.lblMovEntrata.TabIndex = 2;
             this.lblMovEntrata.Text = "n° movimenti in entrata:";
             // 
@@ -184,10 +268,9 @@ namespace Magazzini2._0
             // 
             this.lblMovUscita.AutoSize = true;
             this.lblMovUscita.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMovUscita.Location = new System.Drawing.Point(0, 367);
-            this.lblMovUscita.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMovUscita.Location = new System.Drawing.Point(0, 450);
             this.lblMovUscita.Name = "lblMovUscita";
-            this.lblMovUscita.Size = new System.Drawing.Size(112, 13);
+            this.lblMovUscita.Size = new System.Drawing.Size(149, 17);
             this.lblMovUscita.TabIndex = 3;
             this.lblMovUscita.Text = "n° movimenti in uscita:";
             // 
@@ -195,10 +278,9 @@ namespace Magazzini2._0
             // 
             this.lblTotUscita.AutoSize = true;
             this.lblTotUscita.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblTotUscita.Location = new System.Drawing.Point(0, 354);
-            this.lblTotUscita.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotUscita.Location = new System.Drawing.Point(0, 433);
             this.lblTotUscita.Name = "lblTotUscita";
-            this.lblTotUscita.Size = new System.Drawing.Size(114, 13);
+            this.lblTotUscita.Size = new System.Drawing.Size(152, 17);
             this.lblTotUscita.TabIndex = 4;
             this.lblTotUscita.Text = "totale denaro in uscita:";
             // 
@@ -206,25 +288,28 @@ namespace Magazzini2._0
             // 
             this.lblTotEntrata.AutoSize = true;
             this.lblTotEntrata.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblTotEntrata.Location = new System.Drawing.Point(0, 341);
-            this.lblTotEntrata.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotEntrata.Location = new System.Drawing.Point(0, 416);
             this.lblTotEntrata.Name = "lblTotEntrata";
-            this.lblTotEntrata.Size = new System.Drawing.Size(122, 13);
+            this.lblTotEntrata.Size = new System.Drawing.Size(164, 17);
             this.lblTotEntrata.TabIndex = 5;
             this.lblTotEntrata.Text = "totale denaro in entrata: ";
             // 
+            // movimentiTableAdapter
+            // 
+            this.movimentiTableAdapter.ClearBeforeFill = true;
+            // 
             // frmMovimenti
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 393);
+            this.ClientSize = new System.Drawing.Size(929, 484);
             this.Controls.Add(this.lblTotEntrata);
             this.Controls.Add(this.lblTotUscita);
             this.Controls.Add(this.lblMovUscita);
             this.Controls.Add(this.lblMovEntrata);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMovimenti";
             this.Text = "frmMovimenti";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -232,6 +317,8 @@ namespace Magazzini2._0
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimentiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestioneMovimentiDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,5 +343,14 @@ namespace Magazzini2._0
         private System.Windows.Forms.Label lblTotUscita;
         private System.Windows.Forms.Label lblTotEntrata;
         private System.Windows.Forms.ToolStripLabel toolStripLblFiltro;
+        private GestioneMovimentiDataSet gestioneMovimentiDataSet;
+        private System.Windows.Forms.BindingSource movimentiBindingSource;
+        private GestioneMovimentiDataSetTableAdapters.MovimentiTableAdapter movimentiTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDProdottoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDMagazzinoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDContattoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataMovimentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoMovimentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantitaDataGridViewTextBoxColumn;
     }
 }

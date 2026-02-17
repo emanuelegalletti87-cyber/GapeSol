@@ -118,6 +118,11 @@
     <Compile Include="frmProdotti.Designer.cs">
       <DependentUpon>frmProdotti.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestioneContattiDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestioneContattiDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GestioneMagazziniDataSet.cs">
       <DependentUpon>GestioneMagazziniDataSet.xsd</DependentUpon>
     </Compile>
@@ -130,6 +135,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GestioneContattiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneMovimentiDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestioneMovimentiDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GestioneProdottiDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -203,6 +213,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="GestioneContattiDataSet2.xsc">
+      <DependentUpon>GestioneContattiDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GestioneContattiDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestioneContattiDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestioneContattiDataSet2.xss">
+      <DependentUpon>GestioneContattiDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="GestioneMagazziniDataSet.xsc">
       <DependentUpon>GestioneMagazziniDataSet.xsd</DependentUpon>
     </None>
@@ -224,6 +245,17 @@
     </None>
     <None Include="GestioneContattiDataSet.xss">
       <DependentUpon>GestioneContattiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestioneMovimentiDataSet.xsc">
+      <DependentUpon>GestioneMovimentiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestioneMovimentiDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestioneMovimentiDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestioneMovimentiDataSet.xss">
+      <DependentUpon>GestioneMovimentiDataSet.xsd</DependentUpon>
     </None>
     <None Include="GestioneProdottiDataSet.xsc">
       <DependentUpon>GestioneProdottiDataSet.xsd</DependentUpon>

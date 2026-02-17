@@ -22,6 +22,8 @@ namespace Magazzini2._0
 
         private void frmMovimenti_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'gestioneMovimentiDataSet.Movimenti' table. You can move, or remove it, as needed.
+            this.movimentiTableAdapter.Fill(this.gestioneMovimentiDataSet.Movimenti);
             try
             {
                 var _dtp = new DateTimePicker
